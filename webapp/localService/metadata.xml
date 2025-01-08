@@ -1,0 +1,1506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".1/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='SAP__SELF',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zui_rap_kfv_v2" xml:lang="fr" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="I_CountryType" sap:label="Pays/Région" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Country_Text" sap:label="Clé de pays/région"/>
+                <Property Name="Country_Text" Type="Edm.String" MaxLength="50" sap:label="Nom pays/région" sap:quickinfo="Nom du pays/de la région" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Code ISO 3 car." sap:quickinfo="Code ISO pays/région à trois caractères"/>
+                <Property Name="CountryThreeDigitISOCode" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Code ISO 3 chif" sap:quickinfo="Code ISO numérique pays/région à 3 chiffres"/>
+                <Property Name="CountryISOCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Code ISO" sap:quickinfo="Code ISO pays/région"/>
+                <Property Name="IsEuropeanUnionMember" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Membre UE" sap:quickinfo="Code : membre de l'Union Européenne ?"/>
+                <Property Name="CountryCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise déclaration" sap:quickinfo="Devise de la déclaration" sap:semantics="currency-code"/>
+                <Property Name="IndexBasedCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise indexée" sap:quickinfo="Clé de devise de la devise indexée" sap:semantics="currency-code"/>
+                <Property Name="HardCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise forte" sap:quickinfo="Clé de devise de la devise forte" sap:semantics="currency-code"/>
+                <Property Name="TaxCalculationProcedure" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Schéma" sap:quickinfo="Schéma (détermin. prix, messages, détermin. cptes, CCR, ...)"/>
+                <Property Name="CountryAlternativeCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé alternative" sap:quickinfo="Clé de pays/région alternative"/>
+            </EntityType>
+            <EntityType Name="I_CurrencyType" sap:label="Devise" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currency"/>
+                </Key>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="UpperCase" sap:text="Currency_Text" sap:label="Devise" sap:quickinfo="Clé de devise" sap:semantics="currency-code"/>
+                <Property Name="Currency_Text" Type="Edm.String" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Decimals" Type="Edm.Byte" sap:label="Nombre de décimales"/>
+                <Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Code ISO" sap:quickinfo="Code devise ISO"/>
+                <Property Name="AlternativeCurrencyKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé alternative"/>
+                <Property Name="IsPrimaryCurrencyForISOCrcy" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primaire" sap:quickinfo="Code de devise SAP primaire pour code ISO"/>
+            </EntityType>
+            <EntityType Name="zc_rap_kfvType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kfv"/>
+                    <PropertyRef Name="Vte"/>
+                </Key>
+                <Property Name="Kfv" Type="Edm.String" Nullable="false" MaxLength="15" sap:display-format="UpperCase" sap:label="N° réservation" sap:quickinfo="Numéro de réservation"/>
+                <Property Name="Vte" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="Vtebezeichnung" sap:label="Projet de vente" sap:quickinfo="Numéro projet de vente"/>
+                <Property Name="Vtebezeichnung" Type="Edm.String" MaxLength="100" sap:label="Désignation PV" sap:quickinfo="Désignation projet de vente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="bukrs" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Société" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Saisi par"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Saisie initiale le" sap:quickinfo="Date de la saisie initiale"/>
+                <Property Name="Terf" Type="Edm.Time" Precision="0" sap:label="Heure de création"/>
+                <Property Name="Reher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Source entrée init." sap:quickinfo="Origine de la saisie initiale"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Dernière modif. par" sap:quickinfo="Code d'identification salarié"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernier traitem. le" sap:quickinfo="Date du dernier traitement"/>
+                <Property Name="Tbear" Type="Edm.Time" Precision="0" sap:label="Heure dern. traitmt" sap:quickinfo="Heure du dernier traitement"/>
+                <Property Name="Rbher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Orig. du traitement" sap:quickinfo="Origine du traitement"/>
+                <Property Name="VkeVstatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Statut de vente" sap:quickinfo="Statut de vente UV"/>
+                <Property Name="Contrtype" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Type de contrat" sap:quickinfo="Type contrat de vente"/>
+                <Property Name="Dzform" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="au notaire/courtier" sap:quickinfo="Date formulaire d'accord au notaire / courtier"/>
+                <Property Name="Urkunde" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="N° de document"/>
+                <Property Name="Durkunde" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Certifié le"/>
+                <Property Name="NotarXname" Type="Edm.String" MaxLength="60" sap:label="Notaire (anc. champ)" sap:quickinfo="Notaire (ancien champ)"/>
+                <Property Name="MaklerXname" Type="Edm.String" MaxLength="60" sap:label="Représent./courtier" sap:quickinfo="Représentant/courtier (ancien champ)"/>
+                <Property Name="KzVollm" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Procuration"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise" sap:quickinfo="Clé de devise" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="Provnetto" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant (net)" sap:quickinfo="Commission de courtage: Montant net"/>
+                <Property Name="Mwskz" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Code TVA" sap:quickinfo="Code TVA sur C.A."/>
+                <Property Name="Provbrutto" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant (brut)" sap:quickinfo="Commission de courtage: Montant brut"/>
+                <Property Name="Provsatz" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Taux commission net" sap:quickinfo="Commission de courtage: Taux de commission % (net)"/>
+                <Property Name="Drechprov" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Invoice from" sap:quickinfo="Invoice receipt date"/>
+                <Property Name="Dzfreigprov" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Validation paiement" sap:quickinfo="Validation du paiement le"/>
+                <Property Name="Kftyp" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Type d'acheteur"/>
+                <Property Name="KzMitarb" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Collabor. obsolète" sap:quickinfo="Code collaborateur (obsolète)"/>
+                <Property Name="KonzernMa" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Collabor. groupe" sap:quickinfo="Info acheteur: Collaborateurs groupe"/>
+                <Property Name="Mietervorkauf" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Dr.préemp. locataire" sap:quickinfo="Info acheteur: Droit de préemption du locataire"/>
+                <Property Name="Dolmetscher" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Interprète requis" sap:quickinfo="Info acheteur: interprète (oui/non)"/>
+                <Property Name="Gpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix vente total" sap:quickinfo="Prix de vente total"/>
+                <Property Name="Verkzusch" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Subvention vendeur"/>
+                <Property Name="Dverkzusch" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="ordonné le" sap:quickinfo="Subvention de vendeur ordonnée le"/>
+                <Property Name="Szusage" Type="Edm.String" MaxLength="40" sap:label="Autre engag." sap:quickinfo="Autre engagement (type)"/>
+                <Property Name="Dzerl" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Engagement pris le"/>
+                <Property Name="Dflnotar" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Cpte cons. not. éch." sap:quickinfo="Cpte consign. notaire: Échéance prix d'achat (éch. calculée)"/>
+                <Property Name="Dfldirekt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Gestion directe éch." sap:quickinfo="Gestion directe: Échéance prix d'achat (échéance calculée)"/>
+                <Property Name="Dfruhzah" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Paiement au plus tôt" sap:quickinfo="Gestion: Date de paiement au plus tôt (échéance le)"/>
+                <Property Name="AbwicAuflassEingerei" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="AnnotTrProp déposée" sap:quickinfo="Gestion: Annotation de transfert propriété déposée le"/>
+                <Property Name="AbwicAuflassEingetra" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="AnnotTrProp enreg." sap:quickinfo="Gestion: Annotation transfert propriété enregistrée le"/>
+                <Property Name="AbwicLoeschEingerei" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Annulation déposée" sap:quickinfo="Gestion: Annulation déposée le"/>
+                <Property Name="AbwicLoeschEingetra" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Annul. enregistrée" sap:quickinfo="Gestion: Annulation enregistrée le"/>
+                <Property Name="AbwicEigumschrEingerei" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Tr. propriété déposé" sap:quickinfo="Gestion: Transfert déposé le"/>
+                <Property Name="AbwicKpAnpGrund" Type="Edm.String" MaxLength="240" sap:label="Motif ajust. PA" sap:quickinfo="Gestion: Motif d'ajustement du prix d'achat"/>
+                <Property Name="AbwicKpAnpFaellig" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Échéance ajust. PA" sap:quickinfo="Gestion: Échéance d'ajustement du prix d'achat"/>
+                <Property Name="AbwicKpAnpBetrag" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant ajust. PA" sap:quickinfo="Gestion: Montant d'ajustement du prix d'achat"/>
+                <Property Name="AbwicKpZahlungKonto" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Cpte paiem. PA" sap:quickinfo="Gestion: Compte de paiement du prix d'achat"/>
+                <Property Name="AbwicKpZahlungBetrag" Type="Edm.Decimal" Precision="17" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant paiem. PA" sap:quickinfo="Gestion: Montant de paiement du prix d'achat"/>
+                <Property Name="AbwicKpZahlungDatum" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date paiement PA" sap:quickinfo="Gestion: Date de paiement du prix d'achat"/>
+                <Property Name="Dbueber1" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Transf.poss. contr." sap:quickinfo="Transfert de possession selon contrat"/>
+                <Property Name="Dbueber2" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Transfert pour CF" sap:quickinfo="Transfert divergent pour comptabilité financière"/>
+                <Property Name="KzGrdst" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Impôt de mutation" sap:quickinfo="Prise en charge de l'impôt de mutation"/>
+                <Property Name="KzNotarko" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Frais de notaire" sap:quickinfo="Prise en charge des frais de notaire"/>
+                <Property Name="KzGerko" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Frais de justice" sap:quickinfo="Prise en charge des frais de justice"/>
+                <Property Name="Betrko" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Coûts"/>
+                <Property Name="Dzfreigko" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Validation paiement" sap:quickinfo="Validation du paiement le"/>
+                <Property Name="KzGenehm" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Autorisation requise"/>
+                <Property Name="Dgenehm" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date d'autorisation" sap:quickinfo="Date de l'autorisation"/>
+                <Property Name="Dmeldkom" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Déclar. à la commune" sap:quickinfo="Déclar. à commune (uniq. pour objets subv. par pv publics)"/>
+                <Property Name="Dscan" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Contrat scanné" sap:quickinfo="Contrat de vente scanné le"/>
+                <Property Name="Anmerkung1" Type="Edm.String" MaxLength="132" sap:label="Remarque"/>
+                <Property Name="Anmerkung2" Type="Edm.String" MaxLength="132" sap:label="Remarque"/>
+                <Property Name="Eigumschr" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Tr. propriété" sap:quickinfo="Transfert de propriété (transfert enregistré le)"/>
+                <Property Name="EigumschrInf" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Tprop av.Tposs" sap:quickinfo="Transfert de propriété avant transfert de possession"/>
+                <Property Name="Rueckgrd" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Motif trait. rétroa." sap:quickinfo="Motif traitement rétroactif"/>
+                <Property Name="Drueck1" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trait. rétroactif le" sap:quickinfo="Traitement rétroactif le"/>
+                <Property Name="Drueck2" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Tr. rétro. s. cont." sap:quickinfo="Traitement rétroactif selon contrat"/>
+                <Property Name="Drueck3" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Trait. rétroa. CoFi" sap:quickinfo="Date traitement rétroactif pour déclaration à compta. fin."/>
+                <Property Name="Drueckzah" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Prix Ach. remboursé" sap:quickinfo="Prix d'achat remboursé le"/>
+                <Property Name="Dprovford" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Comm. récupérée" sap:quickinfo="Commission de courtage récupérée le"/>
+                <Property Name="Dproveing" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Réception commission" sap:quickinfo="Réception du remboursement de la commission"/>
+                <Property Name="Dzuschford" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Subvention récupérée" sap:quickinfo="Subvention récupérée le"/>
+                <Property Name="Dzuscheing" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Réception subv." sap:quickinfo="Réception remboursement de subvention le"/>
+                <Property Name="KzKfvollst" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Contrat intégral ?" sap:quickinfo="Contrat intégralement exécuté ?"/>
+                <Property Name="KzKfabschl" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Conclure contrat ?"/>
+                <Property Name="Nkbetr1" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant paiement 1"/>
+                <Property Name="Nkbetr2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant paiement 2"/>
+                <Property Name="Nkbetr3" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant paiement 3"/>
+                <Property Name="Nkbetrw" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Autre montant" sap:quickinfo="Autre montant de paiement"/>
+                <Property Name="Nkbetrges" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant total" sap:quickinfo="Rentrée de fonds montant total"/>
+                <Property Name="Nkbetrausg" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Versmt cpte cons." sap:quickinfo="Versement depuis compte de consignation"/>
+                <Property Name="Dnkbetr1" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="1er paiement" sap:quickinfo="Date: 1er paiement"/>
+                <Property Name="Dnkbetr2" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="2e paiement" sap:quickinfo="Date: 2e paiement"/>
+                <Property Name="Dnkbetr3" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date: 3e paiement"/>
+                <Property Name="Dnknetrw" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="autre paiement" sap:quickinfo="Date: autre rentrée de fonds"/>
+                <Property Name="Dnkbetrausg" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date versement" sap:quickinfo="Date versement depuis compte de consignation"/>
+                <Property Name="Dibetr1" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant paiement 1"/>
+                <Property Name="Dibetr2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant paiement 2"/>
+                <Property Name="Dibetr3" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant paiement 3"/>
+                <Property Name="Dibetrw" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Autre montant" sap:quickinfo="Autre montant de paiement"/>
+                <Property Name="Dibetrges" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant total" sap:quickinfo="Rentrée de fonds montant total"/>
+                <Property Name="Ddibetr1" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="1er paiement" sap:quickinfo="Date: 1er paiement"/>
+                <Property Name="Ddibetr2" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="2e paiement" sap:quickinfo="Date: 2e paiement"/>
+                <Property Name="Ddibetr3" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date: 3e paiement"/>
+                <Property Name="Ddibetrw" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="autre paiement" sap:quickinfo="Date: autre rentrée de fonds"/>
+                <Property Name="Ddimtnotar" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Message au notaire"/>
+                <Property Name="Grbglbetr" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Mont. cré.reg.fonc." sap:quickinfo="Rentrée de fonds par créancier registre foncier"/>
+                <Property Name="Dgrbglbetr" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date paiement" sap:quickinfo="Date du paiement"/>
+                <Property Name="Schldbetr" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Mont. reprise dette" sap:quickinfo="Approbation créancier registre foncier pour reprise dette"/>
+                <Property Name="Dschldb" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date"/>
+                <Property Name="AbwSollbetr" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Écart PA théor." sap:quickinfo="Écart entre rentrée de fonds et prix d'achat théorique"/>
+                <Property Name="Dmahn1" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="1e relance" sap:quickinfo="Date: 1e relance"/>
+                <Property Name="Dmahn2" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="2e relance" sap:quickinfo="Date: 2e relance"/>
+                <Property Name="Dzvauftr" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Ordre ZV" sap:quickinfo="Date: Ordre ZV"/>
+                <Property Name="AnmerkMahn" Type="Edm.String" MaxLength="132" sap:label="Remarque"/>
+                <Property Name="Zinsatz" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Tx int. selon cont." sap:quickinfo="Intérêts de retard: taux d'intérêt selon contrat"/>
+                <Property Name="Zinsbetr" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Int. retard (haut.)" sap:quickinfo="Intérêts de retard (hauteur)"/>
+                <Property Name="Dzinsford" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Invitation acheteur" sap:quickinfo="Date: Invitation acheteur"/>
+                <Property Name="Zinszahbetr" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Paiement acheteur" sap:quickinfo="Intérêts de retard: Paiement acheteur"/>
+                <Property Name="AbwZinsbetr" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Différ. créance" sap:quickinfo="Différence paiement/créance"/>
+                <Property Name="Icon" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Car." sap:quickinfo="Zone de 40 caractères"/>
+                <Property Name="KAktnr" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Numéro de dossier"/>
+                <Property Name="AnzVwo" Type="Edm.Int32" sap:label="Nb logements vendus" sap:quickinfo="Nombre de logements vendus"/>
+                <Property Name="AnzVga" Type="Edm.Int32" sap:label="Nb garages vendus" sap:quickinfo="Nombre de garages vendus"/>
+                <Property Name="AnzVspl" Type="Edm.Int32" sap:label="Nb emplac. vendus" sap:quickinfo="Nombre d'emplacements vendus"/>
+                <Property Name="AnzVge" Type="Edm.Int32" sap:label="Nb commerces vendus" sap:quickinfo="Nombre de commerces vendus"/>
+                <Property Name="AnzVso" Type="Edm.Int32" sap:label="Nb divers vendu" sap:quickinfo="Nombre de divers vendu"/>
+                <Property Name="AnzVoff" Type="Edm.Int32" sap:label="Nb bureaux vendu" sap:quickinfo="Nombre de bureaux vendu"/>
+                <Property Name="AnzVhot" Type="Edm.Int32" sap:label="Nb hotels vendu" sap:quickinfo="Nombre de hotels vendu"/>
+                <Property Name="AnzVmp" Type="Edm.Int32" sap:label="Nb maisons vendu" sap:quickinfo="Nombre de maisons vendu"/>
+                <Property Name="AnzVtgs" Type="Edm.Int32" sap:label="Nb parking so. vendu" sap:quickinfo="Nombre parking souterrain vendu"/>
+                <Property Name="AnzVunb" Type="Edm.Int32" sap:label="Nb terrains vendu" sap:quickinfo="Nombre terrains vendu"/>
+                <Property Name="Vwfl" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf.hab./ut. vendue" sap:quickinfo="Surface habitable ou surface utile vendue"/>
+                <Property Name="VnflGa" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf. garage vendue" sap:quickinfo="Surface de garage vendue"/>
+                <Property Name="VnflSpl" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf. parking vendue" sap:quickinfo="Surface parking vendue"/>
+                <Property Name="VnflGe" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf. comm. vendue" sap:quickinfo="Surface de commerce vendue"/>
+                <Property Name="VnflSo" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface divers" sap:quickinfo="Surface vendue divers"/>
+                <Property Name="VnflOff" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface bureaux vend" sap:quickinfo="Surface bureaux vendue"/>
+                <Property Name="VnflHot" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface hôtel vendue"/>
+                <Property Name="VnflMp" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface maisons vend" sap:quickinfo="Surface maisons vendue"/>
+                <Property Name="VnflUnb" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Sf. terrains vendu" sap:quickinfo="Surface terrains vendus"/>
+                <Property Name="VnflTgs" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Sf.park.sout.vendue" sap:quickinfo="Surface parking souterrain vendue"/>
+                <Property Name="Nkontnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cpte cons. notaire" sap:quickinfo="Numéro compte consignation notaire (ancien champ)"/>
+                <Property Name="NakBankname" Type="Edm.String" MaxLength="60" sap:label="CCN établ. financier" sap:quickinfo="Compte consignation notaire: Nom établissement financier"/>
+                <Property Name="NakBic" Type="Edm.String" MaxLength="11" sap:display-format="UpperCase" sap:label="CCN code SWIFT" sap:quickinfo="Cpte cons. notaire: Code SWIFT pour paiements internat."/>
+                <Property Name="NakIban" Type="Edm.String" MaxLength="34" sap:display-format="UpperCase" sap:label="CCN IBAN" sap:quickinfo="Cpte cons. notaire: IBAN (International Bank Account Number)"/>
+                <Property Name="Dbueber3" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Transfert provisoire" sap:quickinfo="Transfert de possession provisoire"/>
+                <Property Name="Dbueber4" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="TP selon réservation" sap:quickinfo="Transfert de possession prévu selon réservation"/>
+                <Property Name="KzFaelgepr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Échéance vérifiée" sap:quickinfo="Code &quot;Échéance vérifiée&quot;"/>
+                <Property Name="Baufwand" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Frais d'accompagn." sap:quickinfo="Frais d'accompagnement"/>
+                <Property Name="PfandBankpartnr" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="N° part. bancaire" sap:quickinfo="Levée de gage: numéro de partenaire bancaire"/>
+                <Property Name="Pfandbea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Demander levée gage" sap:quickinfo="Demander levée de gage (oui/non)"/>
+                <Property Name="Pfanderh" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Levée de gage reçue" sap:quickinfo="Levée de gage reçue (oui/non)"/>
+                <Property Name="Dpfandbea" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Levée de gage le" sap:quickinfo="Levée de gage demandée le"/>
+                <Property Name="Dpfanderh" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Levée de gage le" sap:quickinfo="Levée de gage reçue le"/>
+                <Property Name="KfvGjahr" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Exercice comptable" sap:quickinfo="Exercice comptable transfert de possession pour reporting"/>
+                <Property Name="KzVm" Type="Edm.String" MaxLength="10" sap:label="Code GV"/>
+                <Property Name="KzVtintern" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Ventes internes" sap:quickinfo="Code: Ventes internes"/>
+                <Property Name="Erforderlich" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Rés. bail néc." sap:quickinfo="Résiliation bail nécessaire oui/non"/>
+                <Property Name="GebuehrAufwand" Type="Edm.Decimal" Precision="16" Scale="2" sap:label="Dépense frais" sap:quickinfo="Dépense frais résiliation bail"/>
+                <Property Name="Rate1" Type="Edm.Decimal" Precision="16" Scale="2" sap:label="Résil. bail Taux_1" sap:quickinfo="Résiliation bail Taux_1"/>
+                <Property Name="Drate1" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date_Taux_1" sap:quickinfo="Date résiliation bail_Taux_1"/>
+                <Property Name="Rate2" Type="Edm.Decimal" Precision="16" Scale="2" sap:label="Résil. bail Taux_2" sap:quickinfo="Résiliation bail Taux_2"/>
+                <Property Name="Drate2" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date_Taux_2" sap:quickinfo="Date résiliation bail_Taux_2"/>
+                <Property Name="Bearbeitungsgebuehr" Type="Edm.Decimal" Precision="16" Scale="2" sap:label="Frais de gestion" sap:quickinfo="Frais de gestion résiliation du bail"/>
+                <Property Name="Dbearbeitungsgeb" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date_Frais gestion" sap:quickinfo="Date résiliation bail frais de gestion"/>
+                <Property Name="Dabnahme" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de réception" sap:quickinfo="Date de réception de résiliation du bail"/>
+                <Property Name="DabnahmeInfoMakler" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Réc._Info_Courtier" sap:quickinfo="Réception de résiliation bail Info Courtier"/>
+                <Property Name="Mpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix achat minimum" sap:quickinfo="Prix d'achat minimum"/>
+                <Property Name="Mpreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix achat min./m²" sap:quickinfo="Prix d'achat minimum par m²"/>
+                <Property Name="Mpreis2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="S.courtier rés." sap:quickinfo="Spécification courtier après résiliation de bail"/>
+                <Property Name="Mpreisqm2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="S.court.rés./m²" sap:quickinfo="Spécification courtier après résiliation de bail par m²"/>
+                <Property Name="Reservierung" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Réservation" sap:quickinfo="Statut: Réservation (date)"/>
+                <Property Name="BestaetNotarterm" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Conf. date not." sap:quickinfo="Statut: Confirmation délai notaire (date)"/>
+                <Property Name="EntwurfKaufer" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Projet à acheteur" sap:quickinfo="Statut: Projet à acheteur (date)"/>
+                <Property Name="RechnUmschreibung" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fact. transfert" sap:quickinfo="Statut: Facture transfert (date)"/>
+                <Property Name="KvVariante" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Variante CV" sap:quickinfo="Contrat: Variante"/>
+                <Property Name="KvMehrsprachig" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="CV saisi DE/EN" sap:quickinfo="Contrat: Multilingue (CV saisi DE/EN)"/>
+                <Property Name="KvMustervertrag" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Modèle contrat vente" sap:quickinfo="Contrat: Modèle de contrat de vente (oui/non)"/>
+                <Property Name="KvMusterVom" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Modèle CV du" sap:quickinfo="Contrat: Version de modèle de contrat de vente du"/>
+                <Property Name="KvBeschlsammlung" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Recueil de décisions" sap:quickinfo="Contrat: Recueil de décisions oui/non"/>
+                <Property Name="KvHinweisVorh" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Indications dans CV" sap:quickinfo="Contrat: Indications dans le contrat de vente oui/non"/>
+                <Property Name="KvHinweistext" Type="Edm.String" MaxLength="120" sap:label="Indication CV" sap:quickinfo="Contrat: Texte d'indication dans le CV"/>
+                <Property Name="KvEntwurfVersandt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Projet CV envoyé" sap:quickinfo="Contrat: Projet de contrat envoyé le"/>
+                <Property Name="KvGeprueft" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Contrat vérifié" sap:quickinfo="Contrat: Contrat vérifié le"/>
+                <Property Name="KvAbnahme" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Réception contrat" sap:quickinfo="Contrat: Réception contrat"/>
+                <Property Name="KvNachgenehmigung" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Autoris. ultérieure" sap:quickinfo="Contrat: Autorisation ultérieure"/>
+                <Property Name="KvBuebAbhaengigkeit" Type="Edm.String" MaxLength="120" sap:label="Dépendance TP" sap:quickinfo="Contrat: Dépendance transfert de possession"/>
+                <Property Name="KvFaelligAbhaengig" Type="Edm.String" MaxLength="120" sap:label="Dép. échéance PA" sap:quickinfo="Contrat: Dépendance échéance du prix d'achat"/>
+                <Property Name="KvAbwMkv" Type="Edm.String" MaxLength="120" sap:label="Dérog. modèle CV" sap:quickinfo="Contrat: Dérogation au modèle de contrat de vente"/>
+                <Property Name="KvAbwFreigabe" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dérog.val. le" sap:quickinfo="Contrat: Dérogation validation le"/>
+                <Property Name="KvErwVollmacht" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Procuration" sap:quickinfo="Procuration de l'acquéreur dans le contrat de vente"/>
+                <Property Name="TDabnahme" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Acceptation" sap:quickinfo="Constructeur: Acceptation (date)"/>
+                <Property Name="TDmaengelbes" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Élimination défauts" sap:quickinfo="Constructeur: Élimination des défauts (date)"/>
+                <Property Name="AktenzeichenNotar" Type="Edm.String" MaxLength="20" sap:label="N° dossier notaire" sap:quickinfo="Numéro de dossier notaire"/>
+                <Property Name="NdbExportDatum" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date export. FDN"/>
+                <Property Name="NdbExportTime" Type="Edm.Time" Precision="0" sap:label="Heure export. FDN"/>
+                <Property Name="NdbImportDatum" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fichier d'import. du" sap:quickinfo="Date de saisie FDN du fichier d'importation"/>
+                <Property Name="NdbImportTime" Type="Edm.Time" Precision="0" sap:label="H. saisie f. import." sap:quickinfo="Heure de saisie FDN du fichier d'importation"/>
+                <Property Name="Freigabebea" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Demander valid." sap:quickinfo="Demander la validation"/>
+                <Property Name="Dfreigabebea" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Val. demandée le" sap:quickinfo="Validation demandée le"/>
+                <Property Name="Freigabebemerk" Type="Edm.String" MaxLength="132" sap:label="Remarque validation" sap:quickinfo="Remarque sur la validation"/>
+                <Property Name="FreigabeKfv" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Validé" sap:quickinfo="CV validé (validation accordée)"/>
+                <Property Name="Dfreigabe" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date validation" sap:quickinfo="Date de validation (dernière validation)"/>
+                <Property Name="NotiziconFrei" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <Property Name="TnotizFrei" Type="Edm.String" MaxLength="30" sap:label="Note" sap:quickinfo="Texte disponible entrée calepin"/>
+                <Property Name="BemerkdelFl" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Boolean" sap:quickinfo="Replacement for Real Boolean Type: 'X' == True '' == False"/>
+                <Property Name="Dmaxloandat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="DatMaxPrêtObtenir" sap:quickinfo="Date maximale pour obtenir le prêt"/>
+                <Property Name="Dplannotarsign" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="DatPrévSignNotar" sap:quickinfo="Date prévue pour signature notariale"/>
+                <Property Name="Dplankeytransf" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date pré.remise clés" sap:quickinfo="Date prévue de remise des clés"/>
+                <Property Name="Tmaofferid" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Numéro de l'offre" sap:quickinfo="Travail supplémentaire : Numéro d'offre"/>
+                <Property Name="Dtmarequest" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date requête" sap:quickinfo="Travail supplémentaire : Date de requête"/>
+                <Property Name="Dtmaoffer" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Offre date" sap:quickinfo="Travaux supplémentaires : Date de l'offre à l'acheteur"/>
+                <Property Name="Dmaxfeedback" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date max.feedback" sap:quickinfo="Travaux supplémentaires : Date maximale de feedback"/>
+                <Property Name="Dtmaacceptat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date d'acceptation" sap:quickinfo="Travaux supplémentaires : Date d'acceptation par l'acheteur"/>
+                <Property Name="Dtmarefusal" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de refus" sap:quickinfo="Travaux supplémentaires : Date de refus de l'acheteur"/>
+                <Property Name="Dvendagreement" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Accord avec fourniss" sap:quickinfo="TMA : Date de l'accord avec le fournisseur"/>
+                <Property Name="Tmabemerk" Type="Edm.String" MaxLength="132" sap:label="TMA Description" sap:quickinfo="Description des travaux supplémentaires (TMA)"/>
+                <Property Name="MainKfv" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Contrat principal" sap:quickinfo="Contrat de vente principal"/>
+                <Property Name="Ebeln" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Document d'achat" sap:quickinfo="Numéro du document d'achat"/>
+                <Property Name="Msgnumber" Type="Edm.String" MaxLength="100" sap:label="ID externe" sap:quickinfo="Journal des applications : identification externe"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <NavigationProperty Name="to_ftk" Relationship="cds_zui_rap_kfv_v2.assoc_B1429C40E129865ED52993176A8A280D" FromRole="FromRole_assoc_B1429C40E129865ED52993176A8A280D" ToRole="ToRole_assoc_B1429C40E129865ED52993176A8A280D"/>
+                <NavigationProperty Name="to_part" Relationship="cds_zui_rap_kfv_v2.assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6" FromRole="FromRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6" ToRole="ToRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6"/>
+                <NavigationProperty Name="to_vke" Relationship="cds_zui_rap_kfv_v2.assoc_5B2AE454AADD64EDBACFE88633CD85F2" FromRole="FromRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2" ToRole="ToRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2"/>
+                <NavigationProperty Name="to_vte" Relationship="cds_zui_rap_kfv_v2.assoc_FF31BAF7B9BE632E7F58CD1C5914052E" FromRole="FromRole_assoc_FF31BAF7B9BE632E7F58CD1C5914052E" ToRole="ToRole_assoc_FF31BAF7B9BE632E7F58CD1C5914052E"/>
+            </EntityType>
+            <EntityType Name="zc_rap_kfvftkType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GuidFtk"/>
+                </Key>
+                <Property Name="GuidFtk" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:quickinfo="GUID (RAW16)"/>
+                <Property Name="Kfv" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="N° réservation" sap:quickinfo="Numéro de réservation" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Saisi par"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Saisie initiale le" sap:quickinfo="Date de la saisie initiale"/>
+                <Property Name="Terf" Type="Edm.Time" Precision="0" sap:label="Heure de création"/>
+                <Property Name="Reher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Source entrée init." sap:quickinfo="Origine de la saisie initiale"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Dernière modif. par" sap:quickinfo="Code d'identification salarié"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernier traitem. le" sap:quickinfo="Date du dernier traitement"/>
+                <Property Name="Tbear" Type="Edm.Time" Precision="0" sap:label="Heure dern. traitmt" sap:quickinfo="Heure du dernier traitement"/>
+                <Property Name="Rbher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Orig. du traitement" sap:quickinfo="Origine du traitement"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé de pays/région"/>
+                <Property Name="Paygroup" Type="Edm.String" MaxLength="15" sap:label="Demande paiement" sap:quickinfo="Facture : Demande de paiement"/>
+                <Property Name="Faktgroupx" Type="Edm.String" MaxLength="40" sap:label="Désig.Demande paiem." sap:quickinfo="Désignation Demande de paiement"/>
+                <Property Name="Bukrs" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Société"/>
+                <Property Name="Partnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Partenaire" sap:quickinfo="Numéro de partenaire"/>
+                <Property Name="BillRecipient" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Destinataire facture" sap:quickinfo="Destinataire de la facture"/>
+                <Property Name="Billrecpercent" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Dest.facture Part%" sap:quickinfo="Destinataires facture répartition en pourcentage"/>
+                <Property Name="Gpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix vente total" sap:quickinfo="Prix de vente total"/>
+                <Property Name="Gpreisgros" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix total brut"/>
+                <Property Name="Awpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix TMA" sap:quickinfo="Prix travaux supplémentaires"/>
+                <Property Name="Awpreisgros" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="TMA prix brut"/>
+                <Property Name="Gesbetrag" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix total"/>
+                <Property Name="Gesbetraggros" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix vente total bru" sap:quickinfo="Prix de vente total brut"/>
+                <Property Name="Invbetrag" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Mont.Factu" sap:quickinfo="Montant facturé"/>
+                <Property Name="Zbtrges" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Paiement entrant" sap:quickinfo="Montant paiement entrant"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise" sap:quickinfo="Clé de devise" sap:semantics="currency-code"/>
+                <Property Name="Plfaz" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de début" sap:quickinfo="Date de début planifiée pour le projet"/>
+                <Property Name="SmvartFx" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Type de contrat" sap:quickinfo="Type de bail externe pr biens immob."/>
+                <Property Name="BukrsFx" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Société"/>
+                <Property Name="RecnnrFx" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="Contrat" sap:quickinfo="Numéro de contrat"/>
+                <Property Name="AktivFx" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Code" sap:quickinfo="Code général"/>
+                <Property Name="Msgnumber" Type="Edm.String" MaxLength="100" sap:label="ID externe" sap:quickinfo="Journal des applications : identification externe"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <Property Name="vte" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Projet de vente" sap:quickinfo="Numéro projet de vente" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_kfv" Relationship="cds_zui_rap_kfv_v2.assoc_B1429C40E129865ED52993176A8A280D" FromRole="ToRole_assoc_B1429C40E129865ED52993176A8A280D" ToRole="FromRole_assoc_B1429C40E129865ED52993176A8A280D"/>
+            </EntityType>
+            <EntityType Name="zc_rap_partType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vte"/>
+                    <PropertyRef Name="Partnr"/>
+                    <PropertyRef Name="Roletyp"/>
+                    <PropertyRef Name="Kfv"/>
+                </Key>
+                <Property Name="Vte" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Projet de vente" sap:quickinfo="Numéro projet de vente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Partnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="Xname" sap:label="Partenaire" sap:quickinfo="Numéro de partenaire"/>
+                <Property Name="Roletyp" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:text="Xroletyp" sap:label="Rôle partenaire" sap:quickinfo="Partenaire : rôle"/>
+                <Property Name="Kfv" Type="Edm.String" Nullable="false" MaxLength="15" sap:display-format="UpperCase" sap:label="N° réservation" sap:quickinfo="Numéro de réservation" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Xroletyp" Type="Edm.String" MaxLength="30" sap:label="Nom" sap:quickinfo="Désignation de la catégorie de rôle"/>
+                <Property Name="NameLast" Type="Edm.String" MaxLength="40" sap:label="Nom"/>
+                <Property Name="NameFirst" Type="Edm.String" MaxLength="40" sap:label="Prénom"/>
+                <Property Name="Xname" Type="Edm.String" MaxLength="60" sap:label="Partnername"/>
+                <Property Name="Xpartner" Type="Edm.String" MaxLength="80" sap:label="Nom/adresse" sap:quickinfo="Nom/adresse du partenaire"/>
+                <Property Name="Telf1" Type="Edm.String" MaxLength="16" sap:label="Téléphone 1" sap:quickinfo="1er numéro de téléphone"/>
+                <Property Name="Telfx1" Type="Edm.String" MaxLength="31" sap:label="Numéro de télécopie"/>
+                <Property Name="Email" Type="Edm.String" MaxLength="241" sap:label="Adresse e-mail"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Client" sap:quickinfo="Numéro de client"/>
+                <Property Name="PartnerExtern" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Part. ext." sap:quickinfo="Partenaire externe"/>
+                <Property Name="BillRecipient" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Destinataire facture" sap:quickinfo="Destinataire de la facture"/>
+                <Property Name="Billrecpercent" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Dest.facture Part%" sap:quickinfo="Destinataires facture répartition en pourcentage"/>
+                <Property Name="Ownerpercent" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="% Propriété" sap:quickinfo="Pourcentage de propriété"/>
+                <Property Name="Baseamount" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant de base"/>
+                <Property Name="PerctBa" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Pourcentage MB" sap:quickinfo="Pourcentage Montant de base"/>
+                <Property Name="Ebeln" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Document d'achat" sap:quickinfo="Numéro du document d'achat"/>
+                <Property Name="Msgnumber" Type="Edm.String" MaxLength="100" sap:label="ID externe" sap:quickinfo="Journal des applications : identification externe"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <Property Name="Cnt" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Dummy" sap:quickinfo="Numc3, utilisation interne"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise" sap:quickinfo="Clé de devise" sap:semantics="currency-code"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Saisi par"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Saisie initiale le" sap:quickinfo="Date de la saisie initiale"/>
+                <Property Name="Terf" Type="Edm.Time" Precision="0" sap:label="Heure de création"/>
+                <Property Name="Reher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Source entrée init." sap:quickinfo="Origine de la saisie initiale"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Dernière modif. par" sap:quickinfo="Code d'identification salarié"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernier traitem. le" sap:quickinfo="Date du dernier traitement"/>
+                <Property Name="Tbear" Type="Edm.Time" Precision="0" sap:label="Heure dern. traitmt" sap:quickinfo="Heure du dernier traitement"/>
+                <Property Name="Rbher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Orig. du traitement" sap:quickinfo="Origine du traitement"/>
+                <Property Name="DeleteFlag" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Code suppression" sap:quickinfo="Code de suppression (supprimer objet)"/>
+                <NavigationProperty Name="to_kfv" Relationship="cds_zui_rap_kfv_v2.assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6" FromRole="ToRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6" ToRole="FromRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6"/>
+                <NavigationProperty Name="to_vte" Relationship="cds_zui_rap_kfv_v2.assoc_F1F97B802E9487073A90CA6724C5869B" FromRole="FromRole_assoc_F1F97B802E9487073A90CA6724C5869B" ToRole="ToRole_assoc_F1F97B802E9487073A90CA6724C5869B"/>
+            </EntityType>
+            <EntityType Name="zc_rap_vkeType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vte"/>
+                    <PropertyRef Name="Bukrs"/>
+                    <PropertyRef Name="zzSwenr"/>
+                    <PropertyRef Name="zzSgrnr"/>
+                    <PropertyRef Name="zzSgenr"/>
+                    <PropertyRef Name="zzSmenr"/>
+                </Key>
+                <Property Name="Vte" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Projet de vente" sap:quickinfo="Numéro projet de vente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Société"/>
+                <Property Name="zzSwenr" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Unité économique" sap:quickinfo="Numéro de l'unité économique"/>
+                <Property Name="zzSgrnr" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Terrain" sap:quickinfo="Numéro de terrain de l'UE"/>
+                <Property Name="zzSgenr" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Bâtiment" sap:quickinfo="Numéro de bâtiment"/>
+                <Property Name="zzSmenr" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Unité locative" sap:quickinfo="Numéro de l'unité locative"/>
+                <Property Name="Kfv" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="N° réservation" sap:quickinfo="Numéro de réservation" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="VkeVstatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Statut de vente" sap:quickinfo="Statut de vente UV"/>
+                <Property Name="Snunr" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Type d'utilisation" sap:quickinfo="Type d'utilisation externe d'une unité locative"/>
+                <Property Name="Dbindbis" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Engagement jusqu'au" sap:quickinfo="Engagement de location jusqu'au"/>
+                <Property Name="Prdart" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Type de produit" sap:quickinfo="Type de produit de l'unité de vente (pour règl. copropriété)"/>
+                <Property Name="Nrecht" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative" sap:label="Qualité jurid. RC" sap:quickinfo="Qualité juridique selon règlement de copropriété"/>
+                <Property Name="Tenr" Type="Edm.String" MaxLength="8" sap:label="Numéro RC" sap:quickinfo="Numéro règlement de copropriété"/>
+                <Property Name="Pstlz" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Code postal"/>
+                <Property Name="Ort01" Type="Edm.String" MaxLength="35" sap:label="Ville"/>
+                <Property Name="Ort02" Type="Edm.String" MaxLength="35" sap:label="Arrondissement"/>
+                <Property Name="Stras" Type="Edm.String" MaxLength="35" sap:label="Rue" sap:quickinfo="Rue et numéro de rue"/>
+                <Property Name="HouseNum1" Type="Edm.String" MaxLength="10" sap:label="Nº de rue"/>
+                <Property Name="Siedlung" Type="Edm.String" MaxLength="60" sap:label="Lotissement/Secteur"/>
+                <Property Name="MeAdr" Type="Edm.String" MaxLength="60" sap:label="Adresse" sap:quickinfo="Adresse de l'unité locative"/>
+                <Property Name="Sstockw" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Etage"/>
+                <Property Name="Rlgesch" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Situation à l'étage"/>
+                <Property Name="Azimm" Type="Edm.Decimal" Precision="3" Scale="0" sap:label="Pièces" sap:quickinfo="Nombre de pièces"/>
+                <Property Name="Ahalbzi" Type="Edm.Decimal" Precision="2" Scale="0" sap:label="Demi-pièces" sap:quickinfo="Nombre de demi-pièces"/>
+                <Property Name="Wnfl" Type="Edm.Decimal" Precision="10" Scale="2" sap:unit="Feins" sap:label="Surf. hab. ou utile" sap:quickinfo="Surface habitable ou surface utile"/>
+                <Property Name="Vfl" Type="Edm.Decimal" Precision="10" Scale="2" sap:unit="Feins" sap:label="Surface de vente"/>
+                <Property Name="Feins" Type="Edm.String" MaxLength="3" sap:label="Unité de surface" sap:semantics="unit-of-measure"/>
+                <Property Name="NflSo" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface Autres"/>
+                <Property Name="Anteil" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Facteur 1 /" sap:quickinfo="Facteur de conversion pour la propriété fractionnée"/>
+                <Property Name="KzBalkon" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Balcon" sap:quickinfo="Indicateur balcon"/>
+                <Property Name="KzTerrasse" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Terrasse" sap:quickinfo="Indicateur Terrasse"/>
+                <Property Name="KzGarten" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Jardin" sap:quickinfo="Indicateur Jardin"/>
+                <Property Name="KzMansarde" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Mansarde" sap:quickinfo="Indicateur Mansarde"/>
+                <Property Name="KzKeller" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Cave" sap:quickinfo="Indicateur cave"/>
+                <Property Name="KzDachboden" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Part des combles" sap:quickinfo="Code part des combles"/>
+                <Property Name="Xstandnr" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Nº place de stat." sap:quickinfo="Numéro de garage / de la place de stationnement"/>
+                <Property Name="Zzusr07" Type="Edm.String" MaxLength="9" sap:label="Numéro cave" sap:quickinfo="Numéro de cave dans une unité de location"/>
+                <Property Name="Zzusr13" Type="Edm.String" MaxLength="9" sap:label="Part des combles" sap:quickinfo="Part du combles no."/>
+                <Property Name="Mea" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Parts de copropriété"/>
+                <Property Name="Hgeld" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Charges copro./mois" sap:quickinfo="Charges de copropriété / mois"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise" sap:quickinfo="Clé de devise" sap:semantics="currency-code"/>
+                <Property Name="Ppreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Spécific. courtier" sap:quickinfo="Spécification courtier (prix d'achat)"/>
+                <Property Name="Ppreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Spécif. courtier/m²" sap:quickinfo="Spécification courtier par m²"/>
+                <Property Name="Verkzusch" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Subvention vendeur"/>
+                <Property Name="Zuschgrd" Type="Edm.String" MaxLength="40" sap:label="Motif"/>
+                <Property Name="Vorzpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix préférentiel"/>
+                <Property Name="VorzpreisBis" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fin de validité" sap:quickinfo="Prix valable jusqu'au"/>
+                <Property Name="Mpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix achat minimum" sap:quickinfo="Prix d'achat minimum"/>
+                <Property Name="Mpreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix achat min./m²" sap:quickinfo="Prix d'achat minimum par m²"/>
+                <Property Name="Lpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix vacance" sap:quickinfo="Prix de vacance"/>
+                <Property Name="Kfpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix d'achat"/>
+                <Property Name="Kfpreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix d'achat / m²" sap:quickinfo="Prix d'achat par m²"/>
+                <Property Name="Awpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix TMA" sap:quickinfo="Prix travaux supplémentaires"/>
+                <Property Name="Awpreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix TMA / m²" sap:quickinfo="Prix des travaux supplémentaires per m²"/>
+                <Property Name="MeStatus" Type="Edm.String" MaxLength="15" sap:label="Statut" sap:quickinfo="Zone de statut"/>
+                <Property Name="Vermstop" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Arrêt location" sap:quickinfo="Arrêt de location"/>
+                <Property Name="VkeDvstop" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Arrêt location à p." sap:quickinfo="Arrêt location valable à partir du (fixé par système)"/>
+                <Property Name="VkeDvstopGel" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Arr.Loc annulé le" sap:quickinfo="Arrêt location annulé le (annulé par système)"/>
+                <Property Name="LeerAb" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Vacance à partir de"/>
+                <Property Name="Leergd" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Motif de la vacance"/>
+                <Property Name="Smive" Type="Edm.String" MaxLength="13" sap:display-format="UpperCase" sap:label="Bail" sap:quickinfo="Numéro du bail"/>
+                <Property Name="Dmibeg" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date début du bail" sap:quickinfo="Date du début du bail"/>
+                <Property Name="Dkuezu" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Résiliation le" sap:quickinfo="Résiliation du bail le ..."/>
+                <Property Name="Manst" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative" sap:label="Niveau de relance"/>
+                <Property Name="Kldatum" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de la plainte"/>
+                <Property Name="MieterPartnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Partenaire" sap:quickinfo="Numéro de partenaire"/>
+                <Property Name="MieterNlast" Type="Edm.String" MaxLength="40" sap:label="Nom"/>
+                <Property Name="MieterNfirst" Type="Edm.String" MaxLength="40" sap:label="Prénom"/>
+                <Property Name="Xtitle" Type="Edm.String" MaxLength="50" sap:label="Titre de civilité" sap:quickinfo="Texte pour titre de civilité"/>
+                <Property Name="Mietername" Type="Edm.String" MaxLength="60" sap:label="Locataire principal" sap:quickinfo="Locataire (locataire principal)"/>
+                <Property Name="BirthDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de naissance" sap:quickinfo="Date de naissance du partenaire"/>
+                <Property Name="GrmNet" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Loyer de base net" sap:quickinfo="Loyer de base net / mois"/>
+                <Property Name="DguelGrm" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Début validité poste" sap:quickinfo="Début de validité du poste de conditions"/>
+                <Property Name="Bkondqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant/unité surf." sap:quickinfo="Montant en devise par unité de surface"/>
+                <Property Name="Vzbk" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Condition amount" sap:quickinfo="Condition item currency amount"/>
+                <Property Name="DguelVzbk" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Début validité poste" sap:quickinfo="Début de validité du poste de conditions"/>
+                <Property Name="Vzhk" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Condition amount" sap:quickinfo="Condition item currency amount"/>
+                <Property Name="DguelVzhk" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Début validité poste" sap:quickinfo="Début de validité du poste de conditions"/>
+                <Property Name="GrmNetNeu" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Nv.mont.total" sap:quickinfo="Nouveau montant total (non proportionnel à la surface)"/>
+                <Property Name="DguelabNeu" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Début de validité" sap:quickinfo="Date d'entrée en vigueur de la révision du loyer"/>
+                <Property Name="BkondqmNeu" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant/unité surf." sap:quickinfo="Montant en devise par unité de surface"/>
+                <Property Name="Mspwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Valeur aperçu loc." sap:quickinfo="Valeur d'aperçu locatif"/>
+                <Property Name="Mspwertqm" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Valeur AL/m²" sap:quickinfo="Valeur d'aperçu locatif par m²"/>
+                <Property Name="Drestaur" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de modern." sap:quickinfo="Date de reconstruction / de modernisation globale"/>
+                <Property Name="Dfrdbis" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Subvention pub. jsq." sap:quickinfo="Subvention publique jusqu'au"/>
+                <Property Name="Kommentar" Type="Edm.String" MaxLength="100" sap:label="Commentaire"/>
+                <Property Name="AnzDelkfv" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Nb réserv. annulées" sap:quickinfo="Nombre de réservations annulées"/>
+                <Property Name="NotRe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="aucun RE" sap:quickinfo="Code UV créée dans ZVTM (pas d'objet RE)"/>
+                <Property Name="BezSmenr" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Unité locative" sap:quickinfo="Numéro de l'unité locative"/>
+                <Property Name="Buchwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Val. comptable HB I" sap:quickinfo="Valeur comptable HB I"/>
+                <Property Name="DstandBw" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="État à la date"/>
+                <Property Name="Stbuchwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Val.compt.fisc." sap:quickinfo="Valeur comptable fiscale"/>
+                <Property Name="Beleihwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant de garantie" sap:quickinfo="Montant de la garantie"/>
+                <Property Name="Budgetline" Type="Edm.String" MaxLength="35" sap:label="Budget lign" sap:quickinfo="Budget ligne"/>
+                <Property Name="PercentDiscount" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Pourcent remise" sap:quickinfo="Pourcentage de remise"/>
+                <Property Name="Businpl" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix de budget" sap:quickinfo="Prix de budget (valeur)"/>
+                <Property Name="Businplqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix budget/m²" sap:quickinfo="Prix de budget par m² (valeur)"/>
+                <Property Name="Dstandev" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="État valeur entrée"/>
+                <Property Name="Entryv" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Valeur entrée"/>
+                <Property Name="Ifrswert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="IFRS-VALUE" sap:quickinfo="IFRS-VALUE copy of GA YE CY if not sold beforehand"/>
+                <Property Name="Dstandgajelj" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="YE HY status GA" sap:quickinfo="State of appraised value at end of current year"/>
+                <Property Name="Detailwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Valeur détaillé" sap:quickinfo="Valeur détaillée"/>
+                <Property Name="Artisreal" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Valeur vénale" sap:quickinfo="Valeur vénale (ancien. Atis Real)"/>
+                <Property Name="Dstandar" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="État valeur vénale" sap:quickinfo="État valeur vénale (Atis Real)"/>
+                <Property Name="Aloanamou" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant alloué prê" sap:quickinfo="Montant alloué du prêt"/>
+                <Property Name="Relamount" Type="Edm.Decimal" Precision="19" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Release amount" sap:quickinfo="Release amount 105 %"/>
+                <Property Name="Mpreis2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="S.courtier rés." sap:quickinfo="Spécification courtier après résiliation de bail"/>
+                <Property Name="Mpreisqm2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="S.court.rés./m²" sap:quickinfo="Spécification courtier après résiliation de bail par m²"/>
+                <Property Name="MpreisDif" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Différence par rés." sap:quickinfo="Différence par résiliation de bail"/>
+                <Property Name="AbwicIdentTeGenehm" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Partage ID approuvé" sap:quickinfo="Gestion: Partage d'identité approuvé"/>
+                <Property Name="AbwicIdentVnErhalt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="JM ID reçu" sap:quickinfo="Gestion: JM identité reçu le"/>
+                <Property Name="SeBoardZust" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Approbation SE Board" sap:quickinfo="Approbation Covivio SE Board (date)"/>
+                <Property Name="ZustAuslgeErf" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Appr. soc.étr. req." sap:quickinfo="Approbation de société étrangère requise ? (oui/non)"/>
+                <Property Name="ZustAuslGes" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Approb. soc.étr. du" sap:quickinfo="Approbation sociétés étrangères du"/>
+                <Property Name="Sollkaution" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant dépôt gar." sap:quickinfo="Montant du dépôt de garantie"/>
+                <Property Name="Istkaution" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Sec.deposit amnt" sap:quickinfo="Security deposit amount"/>
+                <Property Name="Mietrueckstand" Type="Edm.Decimal" Precision="17" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Loyers arriérés"/>
+                <Property Name="Mietminderung" Type="Edm.Decimal" Precision="17" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Diminution du loyer"/>
+                <Property Name="KfProzesse" Type="Edm.String" MaxLength="80" sap:label="Processus" sap:quickinfo="Cautions: Processus (statut de trait. de liste des soldes)"/>
+                <Property Name="KfBemerkung" Type="Edm.String" MaxLength="132" sap:label="Remarque"/>
+                <Property Name="MietrueckstandVom" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Loyers arriérés du" sap:quickinfo="Vérification des loyers arriérés (date)"/>
+                <Property Name="KzOnline" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Actif" sap:quickinfo="Actif (oui/non)"/>
+                <Property Name="Donline" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="actif depuis"/>
+                <Property Name="AnzClicks" Type="Edm.Int32" sap:label="Nombre de clics"/>
+                <Property Name="AnzInteressent" Type="Edm.Int32" sap:label="Nombre d'intéressés"/>
+                <Property Name="AnzBesicht" Type="Edm.Int32" sap:label="Nombre dates visite" sap:quickinfo="Nombre de dates de visite"/>
+                <Property Name="Massnahmen" Type="Edm.String" MaxLength="30" sap:label="Mesures"/>
+                <Property Name="Massnahmen2" Type="Edm.String" MaxLength="30" sap:label="Mesures"/>
+                <Property Name="Massnahmen3" Type="Edm.String" MaxLength="30" sap:label="Mesures"/>
+                <Property Name="Massnahmen4" Type="Edm.String" MaxLength="30" sap:label="Mesures"/>
+                <Property Name="Massnahmen5" Type="Edm.String" MaxLength="30" sap:label="Mesures"/>
+                <Property Name="Massnahmen6" Type="Edm.String" MaxLength="30" sap:label="Mesures"/>
+                <Property Name="Massnahmen7" Type="Edm.String" MaxLength="30" sap:label="Mesures"/>
+                <Property Name="Expose" Type="Edm.String" MaxLength="15" sap:label="Exposé"/>
+                <Property Name="KzPaket" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Paquet" sap:quickinfo="Code paquet (oui/non)"/>
+                <Property Name="Bemerkung" Type="Edm.String" MaxLength="100" sap:label="Remarques"/>
+                <Property Name="Msgnumber" Type="Edm.String" MaxLength="100" sap:label="ID externe" sap:quickinfo="Journal des applications : identification externe"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <Property Name="Ybaujahr" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Année construction" sap:quickinfo="Année de construction"/>
+                <Property Name="Xnrecht" Type="Edm.String" MaxLength="20" sap:label="Désignation"/>
+                <Property Name="Xprdart" Type="Edm.String" MaxLength="30" sap:label="Type de produit" sap:quickinfo="Désignation type de produit"/>
+                <Property Name="Xnunrk" Type="Edm.String" MaxLength="15" sap:label="Cat. d'util. de l'UL" sap:quickinfo="Désign. synth. du type d'utilis. externe de l'unité locative"/>
+                <Property Name="Xvart" Type="Edm.String" MaxLength="15" sap:label="Nom"/>
+                <Property Name="Xkftyp" Type="Edm.String" MaxLength="30" sap:label="Description"/>
+                <Property Name="Xrueckgrd" Type="Edm.String" MaxLength="30" sap:label="Description"/>
+                <Property Name="Xvermstat" Type="Edm.String" MaxLength="15" sap:label="Nom"/>
+                <Property Name="Xleergd" Type="Edm.String" MaxLength="30" sap:label="Motif de la vacance"/>
+                <Property Name="Pspnr" Type="Edm.String" MaxLength="24" sap:display-format="NonNegative" sap:label="Elément d'OTP"/>
+                <Property Name="DatDelkfv" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernière annulation" sap:quickinfo="Date de la dernière annulation"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé de pays/région"/>
+                <Property Name="Saleblocked" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Ne pas vendre" sap:quickinfo="Pas autorisé à vendre (Bloqué à la vente)"/>
+                <Property Name="Plansaledate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Planifiée de vente" sap:quickinfo="Date de vente planifiée"/>
+                <Property Name="Posid" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="Elément d'OTP" sap:quickinfo="Elément d'organigramme technique de projet (élt OTP)"/>
+                <Property Name="Extaxcode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Code TVA" sap:quickinfo="Code TVA sur C.A."/>
+                <Property Name="Taxtype" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Type de taxe"/>
+                <Property Name="Taxgroup" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Groupe d'imposition"/>
+                <Property Name="Budgettaxamount" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="TVA budget prix" sap:quickinfo="Montant TVA Budget prix"/>
+                <Property Name="Budgetgrossamount" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Brut devise interne" sap:quickinfo="Montant brut en dev. interne"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Saisi par"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Saisie initiale le" sap:quickinfo="Date de la saisie initiale"/>
+                <Property Name="Terf" Type="Edm.Time" Precision="0" sap:label="Heure de création"/>
+                <Property Name="Reher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Source entrée init." sap:quickinfo="Origine de la saisie initiale"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Dernière modif. par" sap:quickinfo="Code d'identification salarié"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernier traitem. le" sap:quickinfo="Date du dernier traitement"/>
+                <Property Name="Tbear" Type="Edm.Time" Precision="0" sap:label="Heure dern. traitmt" sap:quickinfo="Heure du dernier traitement"/>
+                <Property Name="Rbher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Orig. du traitement" sap:quickinfo="Origine du traitement"/>
+                <NavigationProperty Name="to_kfv" Relationship="cds_zui_rap_kfv_v2.assoc_5B2AE454AADD64EDBACFE88633CD85F2" FromRole="ToRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2" ToRole="FromRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2"/>
+            </EntityType>
+            <EntityType Name="zi_rap_KFVFTKpType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kfv"/>
+                    <PropertyRef Name="GuidFtk"/>
+                    <PropertyRef Name="GuidFtkp"/>
+                </Key>
+                <Property Name="Kfv" Type="Edm.String" Nullable="false" MaxLength="15" sap:display-format="UpperCase" sap:label="N° réservation" sap:quickinfo="Numéro de réservation"/>
+                <Property Name="GuidFtk" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:quickinfo="GUID (RAW16)"/>
+                <Property Name="GuidFtkp" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:quickinfo="GUID (RAW16)"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Saisi par"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Saisie initiale le" sap:quickinfo="Date de la saisie initiale"/>
+                <Property Name="Terf" Type="Edm.Time" Precision="0" sap:label="Heure de création"/>
+                <Property Name="Reher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Source entrée init." sap:quickinfo="Origine de la saisie initiale"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Dernière modif. par" sap:quickinfo="Code d'identification salarié"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernier traitem. le" sap:quickinfo="Date du dernier traitement"/>
+                <Property Name="Tbear" Type="Edm.Time" Precision="0" sap:label="Heure dern. traitmt" sap:quickinfo="Heure du dernier traitement"/>
+                <Property Name="Rbher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Orig. du traitement" sap:quickinfo="Origine du traitement"/>
+                <Property Name="Budgetline" Type="Edm.String" MaxLength="35" sap:label="Budget lign" sap:quickinfo="Budget ligne"/>
+                <Property Name="Fprozc" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Pourcent. fact." sap:quickinfo="Pourcentage de la valeur à facturer"/>
+                <Property Name="Kfpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix d'achat"/>
+                <Property Name="Taxamount" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="TVA devise interne" sap:quickinfo="Montant TVA en devise interne"/>
+                <Property Name="Grossamount" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Brut devise interne" sap:quickinfo="Montant brut en dev. interne"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise" sap:quickinfo="Clé de devise" sap:semantics="currency-code"/>
+                <Property Name="Historicline" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Historical line" sap:quickinfo="Historical billing plan lines"/>
+                <Property Name="KzFaelgepr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Échéance vérifiée" sap:quickinfo="Code &quot;Échéance vérifiée&quot;"/>
+                <Property Name="Pdatu" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date impos." sap:quickinfo="Date imposée du jalon (prévision)"/>
+                <Property Name="Actdt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date réelle"/>
+                <Property Name="Budat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date comptable" sap:quickinfo="Date comptable de la pièce"/>
+                <Property Name="Partnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Partenaire" sap:quickinfo="Numéro de partenaire"/>
+                <Property Name="Guthaben" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Code d'avoir" sap:heading=""/>
+                <Property Name="Leistart" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Type comptes contrat" sap:quickinfo="Faktura : Type comptes contrat"/>
+                <Property Name="Posidco" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="Elément d'OTP" sap:quickinfo="Elément d'organigramme technique de projet (élt OTP)"/>
+                <Property Name="Objnrco" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Numéro d'objet"/>
+                <Property Name="Identco" Type="Edm.String" MaxLength="50" sap:display-format="UpperCase" sap:label="ID d'objet" sap:quickinfo="ID d'objet complet avec aide recherche selon affectation"/>
+                <Property Name="Taxtype" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Type de taxe"/>
+                <Property Name="Taxgroup" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Groupe d'imposition"/>
+                <Property Name="Extaxcode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Code TVA" sap:quickinfo="Code TVA sur C.A."/>
+                <Property Name="Pspnr" Type="Edm.String" MaxLength="24" sap:display-format="NonNegative" sap:label="Elément d'OTP"/>
+                <Property Name="MlstZaehl" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="Numéro de jalon" sap:quickinfo="Numéro du jalon"/>
+                <Property Name="Fpbe" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Groupe de facture" sap:quickinfo="Plan de facturation : Groupe de facture"/>
+                <Property Name="Fpbez" Type="Edm.String" MaxLength="55" sap:label="Groupe de fact.désig" sap:quickinfo="Plan de facturation : Groupe de facture désignation"/>
+                <Property Name="SortorderGr" Type="Edm.Int16" sap:label="Ordre séquentiel" sap:quickinfo="Séquence de tri"/>
+                <Property Name="Sortorder" Type="Edm.Int16" sap:label="Ordre séquentiel" sap:quickinfo="Séquence de tri"/>
+                <Property Name="Sortorderbl" Type="Edm.Int16" sap:label="Ordre séquentiel" sap:quickinfo="Séquence de tri"/>
+                <Property Name="FlCrs" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Code CPRsV" sap:quickinfo="Coûts, produit, réduction sur ventes"/>
+                <Property Name="PriceReferenz" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Prix de référence"/>
+                <Property Name="FinalInvoice" Type="Edm.String" MaxLength="1" sap:label="Facture finale" sap:quickinfo="Code pour facture finale pour comptabilité des produits"/>
+                <Property Name="Bukrsjr" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Société"/>
+                <Property Name="Invnojr" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Numéro de facture"/>
+                <Property Name="FiscYearjr" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Exercice comptable"/>
+                <Property Name="Canceledinvjr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Annulée" sap:quickinfo="Facture annulée ?"/>
+                <Property Name="Paid" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="payé" sap:quickinfo="Indicateur payé"/>
+                <Property Name="Paydate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Paiement le" sap:quickinfo="Date de paiement"/>
+                <Property Name="Zbtrges" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Paiement entrant" sap:quickinfo="Montant paiement entrant"/>
+                <Property Name="Paydetail" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <Property Name="Condpurposeext" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Motif ext. condition" sap:quickinfo="Conditions - motif externe"/>
+                <Property Name="Msgnumber" Type="Edm.String" MaxLength="100" sap:label="ID externe" sap:quickinfo="Journal des applications : identification externe"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé de pays/région"/>
+                <Property Name="Condstatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Statut de condition"/>
+                <Property Name="Vimstatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="VIM Status" sap:heading=""/>
+            </EntityType>
+            <EntityType Name="zi_rap_vteType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vte"/>
+                </Key>
+                <Property Name="Vte" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Projet de vente" sap:quickinfo="Numéro projet de vente"/>
+                <Property Name="Vart" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Type de vente"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé de pays/région"/>
+                <Property Name="AnglAm" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Créé le" sap:quickinfo="Date de création"/>
+                <Property Name="Projektkuerzel" Type="Edm.String" MaxLength="35" sap:label="ID projet"/>
+                <Property Name="Aktnr" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Numéro de dossier"/>
+                <Property Name="Xvte" Type="Edm.String" MaxLength="100" sap:label="Désignation PV" sap:quickinfo="Désignation projet de vente"/>
+                <Property Name="Pstlz" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Code postal"/>
+                <Property Name="Ort01" Type="Edm.String" MaxLength="35" sap:label="Ville"/>
+                <Property Name="Ort02" Type="Edm.String" MaxLength="35" sap:label="Arrondissement"/>
+                <Property Name="Stras" Type="Edm.String" MaxLength="35" sap:label="Rue" sap:quickinfo="Rue et numéro de rue"/>
+                <Property Name="Siedlung" Type="Edm.String" MaxLength="60" sap:label="Lotissement/Secteur"/>
+                <Property Name="DvstartP" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Début ventes plan"/>
+                <Property Name="DvendeP" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fin ventes plan"/>
+                <Property Name="DvendeI" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fin ventes réelle"/>
+                <Property Name="Vspart" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Partenaire" sap:quickinfo="Numéro de partenaire"/>
+                <Property Name="Xname" Type="Edm.String" MaxLength="60" sap:label="Partnername"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Devise" sap:quickinfo="Clé de devise" sap:semantics="currency-code"/>
+                <Property Name="Buchwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Val. comptable HB I" sap:quickinfo="Valeur comptable HB I"/>
+                <Property Name="Pgpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix total plan" sap:quickinfo="Prix d'achat planifié surface totale"/>
+                <Property Name="Pqmpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix /m²" sap:quickinfo="Prix d'achat planifié par m²"/>
+                <Property Name="IpreisWo" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel logements"/>
+                <Property Name="IqmpreisW" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel log./m²" sap:quickinfo="Prix réel logements par m²"/>
+                <Property Name="IpreisGa" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel garages"/>
+                <Property Name="IepreisGa" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel/Garages" sap:quickinfo="Prix réel par garage"/>
+                <Property Name="IpreisSp" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel parking"/>
+                <Property Name="IepreisSp" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel/parking" sap:quickinfo="Prix réel par parking"/>
+                <Property Name="IpreisGe" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel commerce"/>
+                <Property Name="IqmpreisGe" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel com./m²" sap:quickinfo="Prix réel commerce par m²"/>
+                <Property Name="IpreisSo" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel divers"/>
+                <Property Name="IqmpreisSo" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel divers/m²" sap:quickinfo="Prix réel divers par m2"/>
+                <Property Name="IpreisOff" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel bureau"/>
+                <Property Name="IqmpreisOff" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel bureau/m²" sap:quickinfo="Prix réel bureau par m²"/>
+                <Property Name="IpreisHot" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel hôtels"/>
+                <Property Name="IqmpreisHot" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel hôtels/m²" sap:quickinfo="Prix réel hôtels par m²"/>
+                <Property Name="IpreisMp" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel maisons"/>
+                <Property Name="IqmpreisMp" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel maisons/m²" sap:quickinfo="Prix réel maisons par m²"/>
+                <Property Name="IpreisTgs" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel PS" sap:quickinfo="Prix réel parking souterrain (PS)"/>
+                <Property Name="IepreisTgs" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel/PS" sap:quickinfo="Prix réel par parking souterrain (PS)"/>
+                <Property Name="IpreisUnb" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix réel terrains"/>
+                <Property Name="IqmpreisUnb" Type="Edm.Decimal" Precision="11" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Pr. réel terrains/m²" sap:quickinfo="Prix réel terrains par m²"/>
+                <Property Name="AnzWo" Type="Edm.Int32" sap:label="Nombre logements" sap:quickinfo="Nombre de logements"/>
+                <Property Name="AnzOff" Type="Edm.Int32" sap:label="Nb bureaux" sap:quickinfo="Nombre de bureaux"/>
+                <Property Name="AnzHot" Type="Edm.Int32" sap:label="Nb. hotels" sap:quickinfo="Nombre hotels"/>
+                <Property Name="AnzMp" Type="Edm.Int32" sap:label="Nb. maisons" sap:quickinfo="Nombre maisons"/>
+                <Property Name="AnzGa" Type="Edm.Int32" sap:label="Nombre garages" sap:quickinfo="Nombre de garages"/>
+                <Property Name="AnzUnb" Type="Edm.Int32" sap:label="Nb terrains" sap:quickinfo="Nombre terrains"/>
+                <Property Name="AnzSpl" Type="Edm.Int32" sap:label="Nb parkings" sap:quickinfo="Nombre parkings"/>
+                <Property Name="AnzTgs" Type="Edm.Int32" sap:label="Nb parking souterrai" sap:quickinfo="Nombre parking souterrain"/>
+                <Property Name="AnzGe" Type="Edm.Int32" sap:label="Nombre commerces" sap:quickinfo="Nombre de commerces"/>
+                <Property Name="AnzSo" Type="Edm.Int32" sap:label="Nombre divers"/>
+                <Property Name="Wfl" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf. hab. ou utile" sap:quickinfo="Surface habitable ou surface utile"/>
+                <Property Name="NflGe" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface de commerce"/>
+                <Property Name="NflGa" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface de garage"/>
+                <Property Name="NflSpl" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface parking"/>
+                <Property Name="NflSo" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface divers"/>
+                <Property Name="NflOff" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface bureaux"/>
+                <Property Name="NflHot" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface hôtels"/>
+                <Property Name="NflMp" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface maisons"/>
+                <Property Name="NflUnb" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface terrains"/>
+                <Property Name="NflTgs" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Sf.parking souterrai" sap:quickinfo="Surface parking souterrain"/>
+                <Property Name="MeaGes" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP total PV" sap:quickinfo="Parts de copropriété totales projet de vente"/>
+                <Property Name="MeaBerech" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP calcul. PV" sap:quickinfo="Parts de copropriété calcul. PV"/>
+                <Property Name="BerechflMea" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface de base PV" sap:quickinfo="Surface de base pour calcul PCP"/>
+                <Property Name="MeaBerechQm" Type="Edm.Decimal" Precision="13" Scale="9" sap:label="PCP calcul. par m²"/>
+                <Property Name="MeaFktGa" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="PCP fictif/UV" sap:quickinfo="Parts de copropriété fictives par UV"/>
+                <Property Name="AggFktGa" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP fictives agrég." sap:quickinfo="Parts de copropriété fictives agrég. PV"/>
+                <Property Name="MeaFktTgs" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="PCP fictif/UV" sap:quickinfo="Parts de copropriété fictives par UV"/>
+                <Property Name="AggFktTgs" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP fictives agrég." sap:quickinfo="Parts de copropriété fictives agrég. PV"/>
+                <Property Name="MeaFktDgr" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="PCP fictif/UV" sap:quickinfo="Parts de copropriété fictives par UV"/>
+                <Property Name="AggFktDgr" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP fictives agrég." sap:quickinfo="Parts de copropriété fictives agrég. PV"/>
+                <Property Name="MeaFktSo" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="PCP fictif/UV" sap:quickinfo="Parts de copropriété fictives par UV"/>
+                <Property Name="AggFktSo" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP fictives agrég." sap:quickinfo="Parts de copropriété fictives agrég. PV"/>
+                <Property Name="MeaFktKlm" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="PCP fictif/UV" sap:quickinfo="Parts de copropriété fictives par UV"/>
+                <Property Name="AggFktKlm" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP fictives agrég." sap:quickinfo="Parts de copropriété fictives agrég. PV"/>
+                <Property Name="AggFktVte" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="PCP fictives agrég." sap:quickinfo="Parts de copropriété fictives agrég. PV"/>
+                <Property Name="Hgeldqm" Type="Edm.Decimal" Precision="6" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Charges copro/m²" sap:quickinfo="Charges copropriété/m² en  mois"/>
+                <Property Name="Numkivke" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Nombre UV" sap:quickinfo="Nombre d'unités de vente"/>
+                <Property Name="Numkikfv" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Nb contrats de vente" sap:quickinfo="Nombre de contrats de vente"/>
+                <Property Name="AnzDelkfv" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Nb réserv. annulées" sap:quickinfo="Nombre de réservations annulées"/>
+                <Property Name="Vstat" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Statut de vente bât." sap:quickinfo="Statut de vente bâtiment"/>
+                <Property Name="Dgrweg" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date création du SC" sap:quickinfo="Date de création du syndicat de copropriétaires"/>
+                <Property Name="DstandBw" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="État à la date"/>
+                <Property Name="Vermstop" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Arrêt location" sap:quickinfo="Arrêt de location"/>
+                <Property Name="Dvermstop" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Arrêt location à p." sap:quickinfo="Arrêt location valable à partir du (fixé par système)"/>
+                <Property Name="DvermstopGel" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Arr.Loc annulé le" sap:quickinfo="Arrêt location annulé le (annulé par système)"/>
+                <Property Name="Hlevel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Position" sap:quickinfo="Position de l'objet à l'intérieur d'un niveau"/>
+                <Property Name="Ipreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix vente total" sap:quickinfo="Prix de vente total"/>
+                <Property Name="Ipreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix d'achat / m²" sap:quickinfo="Prix d'achat par m²"/>
+                <Property Name="Stbuchwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Val.compt.fisc." sap:quickinfo="Valeur comptable fiscale"/>
+                <Property Name="Beleihwert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Montant de garantie" sap:quickinfo="Montant de la garantie"/>
+                <Property Name="Businpl" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix de budget" sap:quickinfo="Prix de budget (valeur)"/>
+                <Property Name="Businplqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix budget/m²" sap:quickinfo="Prix de budget par m² (valeur)"/>
+                <Property Name="Ppreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Spécific. courtier" sap:quickinfo="Spécification courtier (prix d'achat)"/>
+                <Property Name="Ppreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Spécif. courtier/m²" sap:quickinfo="Spécification courtier par m²"/>
+                <Property Name="Mpreis" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix achat minimum" sap:quickinfo="Prix d'achat minimum"/>
+                <Property Name="Mpreisqm" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Prix achat min./m²" sap:quickinfo="Prix d'achat minimum par m²"/>
+                <Property Name="Mpreis2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="S.courtier rés." sap:quickinfo="Spécification courtier après résiliation de bail"/>
+                <Property Name="Mpreisqm2" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="S.court.rés./m²" sap:quickinfo="Spécification courtier après résiliation de bail par m²"/>
+                <Property Name="MpreisDif" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Différence par rés." sap:quickinfo="Différence par résiliation de bail"/>
+                <Property Name="DfreigKp" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="PA validés le" sap:quickinfo="Liste des PA validée par GF le"/>
+                <Property Name="Dtebeurk" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="RC certifié le"/>
+                <Property Name="AnzVwo" Type="Edm.Int32" sap:label="Nb logements vendus" sap:quickinfo="Nombre de logements vendus"/>
+                <Property Name="AnzVga" Type="Edm.Int32" sap:label="Nb garages vendus" sap:quickinfo="Nombre de garages vendus"/>
+                <Property Name="AnzVspl" Type="Edm.Int32" sap:label="Nb emplac. vendus" sap:quickinfo="Nombre d'emplacements vendus"/>
+                <Property Name="AnzVge" Type="Edm.Int32" sap:label="Nb commerces vendus" sap:quickinfo="Nombre de commerces vendus"/>
+                <Property Name="AnzVso" Type="Edm.Int32" sap:label="Nb divers vendu" sap:quickinfo="Nombre de divers vendu"/>
+                <Property Name="AnzVoff" Type="Edm.Int32" sap:label="Nb bureaux vendu" sap:quickinfo="Nombre de bureaux vendu"/>
+                <Property Name="AnzVhot" Type="Edm.Int32" sap:label="Nb hotels vendu" sap:quickinfo="Nombre de hotels vendu"/>
+                <Property Name="AnzVmp" Type="Edm.Int32" sap:label="Nb maisons vendu" sap:quickinfo="Nombre de maisons vendu"/>
+                <Property Name="AnzVtgs" Type="Edm.Int32" sap:label="Nb parking so. vendu" sap:quickinfo="Nombre parking souterrain vendu"/>
+                <Property Name="AnzVunb" Type="Edm.Int32" sap:label="Nb terrains vendu" sap:quickinfo="Nombre terrains vendu"/>
+                <Property Name="Vwfl" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf.hab./ut. vendue" sap:quickinfo="Surface habitable ou surface utile vendue"/>
+                <Property Name="VnflGa" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf. garage vendue" sap:quickinfo="Surface de garage vendue"/>
+                <Property Name="VnflSpl" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf. parking vendue" sap:quickinfo="Surface parking vendue"/>
+                <Property Name="VnflGe" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surf. comm. vendue" sap:quickinfo="Surface de commerce vendue"/>
+                <Property Name="VnflSo" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface divers" sap:quickinfo="Surface vendue divers"/>
+                <Property Name="VnflOff" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface bureaux vend" sap:quickinfo="Surface bureaux vendue"/>
+                <Property Name="VnflHot" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface hôtel vendue"/>
+                <Property Name="VnflMp" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Surface maisons vend" sap:quickinfo="Surface maisons vendue"/>
+                <Property Name="VnflUnb" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Sf. terrains vendu" sap:quickinfo="Surface terrains vendus"/>
+                <Property Name="VnflTgs" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Sf.park.sout.vendue" sap:quickinfo="Surface parking souterrain vendue"/>
+                <Property Name="Dabtepl" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Plans CS/RC ordo." sap:quickinfo="Plans CS/RC ordonnés"/>
+                <Property Name="Dabeing" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="CS déposé"/>
+                <Property Name="Dabgen" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="CS approuvé"/>
+                <Property Name="Dbauvorl" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Doss. const. déposés" sap:quickinfo="Dossiers de construction déposés"/>
+                <Property Name="Dbauvorlgen" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Doss. constr. appr." sap:quickinfo="Dossier de construction approuvé"/>
+                <Property Name="Dgfvorlag" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Modèle GF créé"/>
+                <Property Name="Dinstbeauf" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Maint. demandée" sap:quickinfo="Accompagn. ventes, maintenance demandée"/>
+                <Property Name="Dvermunt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Remise doc.commerc." sap:quickinfo="Remise des documents de commercialisation"/>
+                <Property Name="Tgrundte" Type="Edm.String" MaxLength="100" sap:label="Division terrain"/>
+                <Property Name="Dtebeauf" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="RC mandaté"/>
+                <Property Name="Dbegmges" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Déb. entretiens loc." sap:quickinfo="Début des entretiens avec les locataires"/>
+                <Property Name="Bemerk" Type="Edm.String" MaxLength="100" sap:label="Remarques"/>
+                <Property Name="ExtVerk" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Vente externe" sap:quickinfo="Code: Revente (objets externes)"/>
+                <Property Name="Bpvart" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Type vente selon BP" sap:quickinfo="Type de vente selon le business plan"/>
+                <Property Name="Entryv" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Valeur entrée"/>
+                <Property Name="Dstandev" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="État valeur entrée"/>
+                <Property Name="Ifrswert" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="IFRS-VALUE" sap:quickinfo="IFRS-VALUE copy of GA YE CY if not sold beforehand"/>
+                <Property Name="Dstandgajelj" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="YE HY status GA" sap:quickinfo="State of appraised value at end of current year"/>
+                <Property Name="CapexS" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Capex théorique"/>
+                <Property Name="CapexI" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="Waers" sap:variable-scale="true" sap:label="Capex réel" sap:quickinfo="Capex réel (UE complète)"/>
+                <Property Name="Wegnr" Type="Edm.String" MaxLength="8" sap:label="N° objet SC"/>
+                <Property Name="Vart2" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Type de vente 2" sap:quickinfo="Type de vente 2 (pour reporting clusters/parts)"/>
+                <Property Name="Strategy" Type="Edm.String" MaxLength="25" sap:label="Stratégie"/>
+                <Property Name="AntennenvertrBis" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Cont. antenne jusqu." sap:quickinfo="Contrat d'antenne valable jusqu'au"/>
+                <Property Name="SeBoardZust" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Approbation SE Board" sap:quickinfo="Approbation Covivio SE Board (date)"/>
+                <Property Name="ZustAuslgeErf" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Appr. soc.étr. req." sap:quickinfo="Approbation de société étrangère requise ? (oui/non)"/>
+                <Property Name="ZustAuslGes" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Approb. soc.étr. du" sap:quickinfo="Approbation sociétés étrangères du"/>
+                <Property Name="DatbasisMakl" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Base don. courtier" sap:quickinfo="Statut: Base de données à courtier (date)"/>
+                <Property Name="DvstartI" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Début réel ventes" sap:quickinfo="État: Début réel ventes"/>
+                <Property Name="Pspid" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="Définition de projet"/>
+                <Property Name="Posid" Type="Edm.String" MaxLength="24" sap:display-format="UpperCase" sap:label="Elément d'OTP" sap:quickinfo="Elément d'organigramme technique de projet (élt OTP)"/>
+                <Property Name="Pspnr" Type="Edm.String" MaxLength="24" sap:display-format="NonNegative" sap:label="Elément d'OTP"/>
+                <Property Name="Msgnumber" Type="Edm.String" MaxLength="100" sap:label="ID externe" sap:quickinfo="Journal des applications : identification externe"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nom de l'icône" sap:quickinfo="Nom d'une icône"/>
+                <Property Name="Plfaz" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de début" sap:quickinfo="Date de début planifiée pour le projet"/>
+                <Property Name="EmailVte" Type="Edm.String" MaxLength="241" sap:label="Adresse e-mail"/>
+                <Property Name="Bukrs" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Société"/>
+                <Property Name="Hbkid" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Banque société" sap:quickinfo="Raccourci pour une banque société"/>
+                <Property Name="Banks" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Pays/Région banque" sap:quickinfo="Clé pays/région de la banque"/>
+                <Property Name="Bankl" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Clé bancaire"/>
+                <Property Name="Banka" Type="Edm.String" MaxLength="60" sap:label="Établ. financier" sap:quickinfo="Nom de l'établissement financier"/>
+                <Property Name="AddressBukrs" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Code société siège" sap:quickinfo="Code de la société du siège"/>
+                <Property Name="Rerf" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Saisi par"/>
+                <Property Name="Derf" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Saisie initiale le" sap:quickinfo="Date de la saisie initiale"/>
+                <Property Name="Terf" Type="Edm.Time" Precision="0" sap:label="Heure de création"/>
+                <Property Name="Reher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Source entrée init." sap:quickinfo="Origine de la saisie initiale"/>
+                <Property Name="Rbear" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Dernière modif. par" sap:quickinfo="Code d'identification salarié"/>
+                <Property Name="Dbear" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dernier traitem. le" sap:quickinfo="Date du dernier traitement"/>
+                <Property Name="Tbear" Type="Edm.Time" Precision="0" sap:label="Heure dern. traitmt" sap:quickinfo="Heure du dernier traitement"/>
+                <Property Name="Rbher" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Orig. du traitement" sap:quickinfo="Origine du traitement"/>
+                <NavigationProperty Name="to_country" Relationship="cds_zui_rap_kfv_v2.assoc_4E6443D1CC3CE51AD6B42A1D778CF88E" FromRole="FromRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E" ToRole="ToRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E"/>
+            </EntityType>
+            <EntityType Name="SAP__Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CurrencyCode"/>
+                </Key>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Devise" sap:semantics="currency-code"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Code ISO"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Désignation"/>
+                <Property Name="DecimalPlaces" Type="Edm.Byte" Nullable="false" sap:label="Décimales"/>
+            </EntityType>
+            <EntityType Name="SAP__UnitOfMeasure" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitCode"/>
+                </Key>
+                <Property Name="UnitCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unité qté interne" sap:semantics="unit-of-measure"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Code ISO"/>
+                <Property Name="ExternalCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Commercial"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Texte unité mesure"/>
+                <Property Name="DecimalPlaces" Type="Edm.Int16" sap:label="Décimales"/>
+            </EntityType>
+            <EntityType Name="SAP__DocumentDescription" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Horodatage"/>
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="256"/>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="256"/>
+                <NavigationProperty Name="Format" Relationship="cds_zui_rap_kfv_v2.to_format" FromRole="FromRole_to_format" ToRole="ToRole_to_format"/>
+                <NavigationProperty Name="TableColumns" Relationship="cds_zui_rap_kfv_v2.to_tablecolumns" FromRole="FromRole_to_tablecolumns" ToRole="ToRole_to_tablecolumns"/>
+                <NavigationProperty Name="CoverPage" Relationship="cds_zui_rap_kfv_v2.to_coverpage" FromRole="FromRole_to_coverpage" ToRole="ToRole_to_coverpage"/>
+                <NavigationProperty Name="Signature" Relationship="cds_zui_rap_kfv_v2.to_signature" FromRole="FromRole_to_signature" ToRole="ToRole_to_signature"/>
+                <NavigationProperty Name="PDFStandard" Relationship="cds_zui_rap_kfv_v2.to_pdfstandard" FromRole="FromRole_to_pdfstandard" ToRole="ToRole_to_pdfstandard"/>
+            </EntityType>
+            <EntityType Name="SAP__Format" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="FitToPage" Type="cds_zui_rap_kfv_v2.SAP__FitToPage" Nullable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Orientation" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaperSize" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BorderSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MarginSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FontName" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Font Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__PDFStandard" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UsePDFAConformance" Type="Edm.Boolean" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DoEnableAccessibility" Type="Edm.Boolean" Nullable="false" sap:label="Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__TableColumns" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Name"/>
+                    <PropertyRef Name="Header"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Header" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HorizontalAlignment" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__CoverPage" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Title"/>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Name"/>
+                </Key>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__Signature" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DoSign" Type="Edm.Boolean" Nullable="false" sap:label="Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Reason" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__ValueHelp" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="VALUEHELP"/>
+                </Key>
+                <Property Name="VALUEHELP" Type="Edm.String" Nullable="false"/>
+                <Property Name="FIELD_VALUE" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DESCRIPTION" Type="Edm.String"/>
+            </EntityType>
+            <ComplexType Name="SAP__FitToPage">
+                <Property Name="ErrorRecoveryBehavior" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Error behavior" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsEnabled" Type="Edm.Boolean" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MinimumFontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </ComplexType>
+            <Association Name="assoc_4E6443D1CC3CE51AD6B42A1D778CF88E" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.zi_rap_vteType" Multiplicity="1" Role="FromRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E"/>
+                <End Type="cds_zui_rap_kfv_v2.I_CountryType" Multiplicity="0..1" Role="ToRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E">
+                        <PropertyRef Name="Country"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E">
+                        <PropertyRef Name="Country"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_F1F97B802E9487073A90CA6724C5869B" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_partType" Multiplicity="1" Role="FromRole_assoc_F1F97B802E9487073A90CA6724C5869B"/>
+                <End Type="cds_zui_rap_kfv_v2.zi_rap_vteType" Multiplicity="0..1" Role="ToRole_assoc_F1F97B802E9487073A90CA6724C5869B"/>
+            </Association>
+            <Association Name="to_format" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_format"/>
+                <End Type="cds_zui_rap_kfv_v2.SAP__Format" Multiplicity="1" Role="ToRole_to_format"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_format">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_format">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_tablecolumns" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_tablecolumns"/>
+                <End Type="cds_zui_rap_kfv_v2.SAP__TableColumns" Multiplicity="*" Role="ToRole_to_tablecolumns"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_tablecolumns">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_tablecolumns">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_coverpage" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_coverpage"/>
+                <End Type="cds_zui_rap_kfv_v2.SAP__CoverPage" Multiplicity="*" Role="ToRole_to_coverpage"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_coverpage">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_coverpage">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_signature" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_signature"/>
+                <End Type="cds_zui_rap_kfv_v2.SAP__Signature" Multiplicity="1" Role="ToRole_to_signature"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_signature">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_signature">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_pdfstandard" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_pdfstandard"/>
+                <End Type="cds_zui_rap_kfv_v2.SAP__PDFStandard" Multiplicity="1" Role="ToRole_to_pdfstandard"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_pdfstandard">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_pdfstandard">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_kfvType" Multiplicity="1" Role="FromRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_partType" Multiplicity="*" Role="ToRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6">
+                        <PropertyRef Name="Kfv"/>
+                        <PropertyRef Name="Vte"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6">
+                        <PropertyRef Name="Kfv"/>
+                        <PropertyRef Name="Vte"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_5B2AE454AADD64EDBACFE88633CD85F2" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_kfvType" Multiplicity="1" Role="FromRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_vkeType" Multiplicity="*" Role="ToRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2">
+                        <PropertyRef Name="Vte"/>
+                        <PropertyRef Name="Kfv"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2">
+                        <PropertyRef Name="Vte"/>
+                        <PropertyRef Name="Kfv"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_FF31BAF7B9BE632E7F58CD1C5914052E" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_kfvType" Multiplicity="1" Role="FromRole_assoc_FF31BAF7B9BE632E7F58CD1C5914052E"/>
+                <End Type="cds_zui_rap_kfv_v2.zi_rap_vteType" Multiplicity="0..1" Role="ToRole_assoc_FF31BAF7B9BE632E7F58CD1C5914052E"/>
+            </Association>
+            <Association Name="assoc_B1429C40E129865ED52993176A8A280D" sap:content-version="1">
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_kfvType" Multiplicity="1" Role="FromRole_assoc_B1429C40E129865ED52993176A8A280D">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zui_rap_kfv_v2.zc_rap_kfvftkType" Multiplicity="*" Role="ToRole_assoc_B1429C40E129865ED52993176A8A280D"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_B1429C40E129865ED52993176A8A280D">
+                        <PropertyRef Name="Kfv"/>
+                        <PropertyRef Name="Vte"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_B1429C40E129865ED52993176A8A280D">
+                        <PropertyRef Name="Kfv"/>
+                        <PropertyRef Name="vte"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="cds_zui_rap_kfv_v2_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx pdf">
+                <EntitySet Name="SAP__Currencies" EntityType="cds_zui_rap_kfv_v2.SAP__Currency" sap:content-version="1"/>
+                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_zui_rap_kfv_v2.SAP__UnitOfMeasure" sap:content-version="1"/>
+                <EntitySet Name="SAP__MyDocumentDescriptions" EntityType="cds_zui_rap_kfv_v2.SAP__DocumentDescription" sap:content-version="1"/>
+                <EntitySet Name="SAP__FormatSet" EntityType="cds_zui_rap_kfv_v2.SAP__Format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__PDFStandardSet" EntityType="cds_zui_rap_kfv_v2.SAP__PDFStandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__TableColumnsSet" EntityType="cds_zui_rap_kfv_v2.SAP__TableColumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__CoverPageSet" EntityType="cds_zui_rap_kfv_v2.SAP__CoverPage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__SignatureSet" EntityType="cds_zui_rap_kfv_v2.SAP__Signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__ValueHelpSet" EntityType="cds_zui_rap_kfv_v2.SAP__ValueHelp" sap:content-version="1"/>
+                <EntitySet Name="I_Country" EntityType="cds_zui_rap_kfv_v2.I_CountryType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_Currency" EntityType="cds_zui_rap_kfv_v2.I_CurrencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="zc_rap_kfv" EntityType="cds_zui_rap_kfv_v2.zc_rap_kfvType" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="zc_rap_kfvftk" EntityType="cds_zui_rap_kfv_v2.zc_rap_kfvftkType" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="zc_rap_part" EntityType="cds_zui_rap_kfv_v2.zc_rap_partType" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="zc_rap_vke" EntityType="cds_zui_rap_kfv_v2.zc_rap_vkeType" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="zi_rap_KFVFTKp" EntityType="cds_zui_rap_kfv_v2.zi_rap_KFVFTKpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zi_rap_vte" EntityType="cds_zui_rap_kfv_v2.zi_rap_vteType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_4E6443D1CC3CE51AD6B42A1D778CF88E" Association="cds_zui_rap_kfv_v2.assoc_4E6443D1CC3CE51AD6B42A1D778CF88E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zi_rap_vte" Role="FromRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E"/>
+                    <End EntitySet="I_Country" Role="ToRole_assoc_4E6443D1CC3CE51AD6B42A1D778CF88E"/>
+                </AssociationSet>
+                <AssociationSet Name="to_formatSet" Association="cds_zui_rap_kfv_v2.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_format"/>
+                    <End EntitySet="SAP__FormatSet" Role="ToRole_to_format"/>
+                </AssociationSet>
+                <AssociationSet Name="to_pdfstandardSet" Association="cds_zui_rap_kfv_v2.to_pdfstandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_pdfstandard"/>
+                    <End EntitySet="SAP__PDFStandardSet" Role="ToRole_to_pdfstandard"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6" Association="cds_zui_rap_kfv_v2.assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zc_rap_kfv" Role="FromRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6"/>
+                    <End EntitySet="zc_rap_part" Role="ToRole_assoc_04BBE2C796DBCAC4AC3C6326AEEAC8B6"/>
+                </AssociationSet>
+                <AssociationSet Name="to_tablecolumnsSet" Association="cds_zui_rap_kfv_v2.to_tablecolumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_tablecolumns"/>
+                    <End EntitySet="SAP__TableColumnsSet" Role="ToRole_to_tablecolumns"/>
+                </AssociationSet>
+                <AssociationSet Name="to_signatureSet" Association="cds_zui_rap_kfv_v2.to_signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_signature"/>
+                    <End EntitySet="SAP__SignatureSet" Role="ToRole_to_signature"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F1F97B802E9487073A90CA6724C5869B" Association="cds_zui_rap_kfv_v2.assoc_F1F97B802E9487073A90CA6724C5869B" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zc_rap_part" Role="FromRole_assoc_F1F97B802E9487073A90CA6724C5869B"/>
+                    <End EntitySet="zi_rap_vte" Role="ToRole_assoc_F1F97B802E9487073A90CA6724C5869B"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_B1429C40E129865ED52993176A8A280D" Association="cds_zui_rap_kfv_v2.assoc_B1429C40E129865ED52993176A8A280D" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zc_rap_kfv" Role="FromRole_assoc_B1429C40E129865ED52993176A8A280D"/>
+                    <End EntitySet="zc_rap_kfvftk" Role="ToRole_assoc_B1429C40E129865ED52993176A8A280D"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_FF31BAF7B9BE632E7F58CD1C5914052E" Association="cds_zui_rap_kfv_v2.assoc_FF31BAF7B9BE632E7F58CD1C5914052E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zc_rap_kfv" Role="FromRole_assoc_FF31BAF7B9BE632E7F58CD1C5914052E"/>
+                    <End EntitySet="zi_rap_vte" Role="ToRole_assoc_FF31BAF7B9BE632E7F58CD1C5914052E"/>
+                </AssociationSet>
+                <AssociationSet Name="to_coverpageSet" Association="cds_zui_rap_kfv_v2.to_coverpage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_coverpage"/>
+                    <End EntitySet="SAP__CoverPageSet" Role="ToRole_to_coverpage"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_5B2AE454AADD64EDBACFE88633CD85F2" Association="cds_zui_rap_kfv_v2.assoc_5B2AE454AADD64EDBACFE88633CD85F2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zc_rap_kfv" Role="FromRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2"/>
+                    <End EntitySet="zc_rap_vke" Role="ToRole_assoc_5B2AE454AADD64EDBACFE88633CD85F2"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_zui_rap_kfv_v2.zc_rap_kfvType/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Devise"/>
+                        <PropertyValue Property="CollectionPath" String="I_Currency"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Currency_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Decimals"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AlternativeCurrencyKey"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsPrimaryCurrencyForISOCrcy"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.cds_zui_rap_kfv_v2_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.zc_rap_kfvType/to_ftk" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Composition"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.zc_rap_kfvType/to_part" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Composition"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.zc_rap_kfvType/to_vke" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Composition"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.cds_zui_rap_kfv_v2_Entities/zc_rap_kfv" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_ftk"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_part"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_vke"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_vte"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection>
+                        <PropertyPath>LastChangedAt</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.cds_zui_rap_kfv_v2_Entities/zc_rap_kfvftk" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_kfv"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection>
+                        <PropertyPath>LastChangedAt</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.cds_zui_rap_kfv_v2_Entities/zc_rap_part" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_kfv"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_vte"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection>
+                        <PropertyPath>LastChangedAt</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.cds_zui_rap_kfv_v2_Entities/zc_rap_vke" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_kfv"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection>
+                        <PropertyPath>LastChangedAt</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection/>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.cds_zui_rap_kfv_v2_Entities/zi_rap_vte" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_country"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.I_CountryType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SAPObjectNodeType">
+                    <Record>
+                        <PropertyValue Property="Name" String="Country"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.I_CurrencyType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SAPObjectNodeType">
+                    <Record>
+                        <PropertyValue Property="Name" String="Currency"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.I_CurrencyType/Currency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.UnitSpecificScale" Path="Decimals"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.cds_zui_rap_kfv_v2_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="./$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="SAP__MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.SAP__DocumentDescription">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__MyDocumentDescriptions"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+                <Annotation Term="SAP__CodeList.ExternalCode" Path="ExternalCode"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.AlternateKeys">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="Key">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="Name" Path="ExternalCode"/>
+                                        <PropertyValue Property="Alias" String="ExternalCode"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__DocumentDescription/CreatedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__DocumentDescription/CreatedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__DocumentDescription" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__capabilties.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Format/Orientation"/>
+                                    <PropertyValue Property="AllowedExpressions" String="Multivalue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Format/PaperSize"/>
+                                    <PropertyValue Property="AllowedExpressions" String="Multivalue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__Format/FitToPage/ErrorRecoveryBehavior" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="../../../../SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27ErrorRecoveryBehaviour%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__Format/FontName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27FontName%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__Format/PaperSize" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27PaperSize%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__Format/Orientation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27FontName%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_rap_kfv_v2.SAP__TableColumns/HorizontalAlignment" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HorizontalAlignment%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <atom:link rel="self" href="https://ciiwsds401.iws.all-for-one.cloud:44301/sap/opu/odata/sap/ZUI_RAP_KFV_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://ciiwsds401.iws.all-for-one.cloud:44301/sap/opu/odata/sap/ZUI_RAP_KFV_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
